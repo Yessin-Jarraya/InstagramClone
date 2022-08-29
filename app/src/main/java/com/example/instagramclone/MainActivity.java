@@ -2,6 +2,7 @@ package com.example.instagramclone;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -19,7 +20,7 @@ import com.shashank.sony.fancytoastlib.FancyToast;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-    private Button btnSave,btnGetAllData,btnTransition;
+    private Button btnSave,btnGetAllData,btnTrans;
     private EditText edtName,edtPunchPower,edtPunchSpeed,edtKickPower,edtKickSpeed;
     private TextView txtGetData;
     private String allKickBoxers;
@@ -30,6 +31,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnSave = findViewById(R.id.btnSave);
         btnGetAllData = findViewById(R.id.btnGetAllData);
         edtName= findViewById(R.id.edtName);
+        btnTrans= findViewById(R.id.btnTrans);
         edtPunchPower = findViewById(R.id.edtPunchPower);
         edtPunchSpeed = findViewById(R.id.edtPunchSpeed);
         edtKickPower = findViewById(R.id.edtKickPower);
@@ -37,7 +39,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         txtGetData = findViewById(R.id.txtGetData);
         btnSave.setOnClickListener(this);
         btnGetAllData.setOnClickListener(this);
-        btnTransition.setOnClickListener(this);
+        btnTrans.setOnClickListener(MainActivity.this);
         txtGetData.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -89,7 +91,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     }
                 });
                 break;
-            case R.id.btnTransition:
+            case R.id.btnTrans:
+                Intent intent = new Intent(MainActivity.this,SignUpLoginActivity.class);
+                startActivity(intent);
                 break;
             case R.id.btnSave:
 
