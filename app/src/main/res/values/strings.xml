@@ -5,5 +5,8 @@
     <!-- Paste BOTH strings as required -->
     <string name="back4app_app_id">aN7UiH9pbyeQTcIOc2J0A29uluBMF3645ThLKDD7</string>
     <string name="back4app_client_key">N8VtpcndWJLfAo51Xq13niV93wMv8ni8OQyl0Ezv</string>
+    <string name="save_kickboxer_to_server">Save KickBoxer to Server</string>
+    <string name="get_all_kickboxers">Get All KickBoxers</string>
+    <string name="switch_to_next_activity">Switch To Next Activity</string>
 
 </resources>

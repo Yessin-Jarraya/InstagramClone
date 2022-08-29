@@ -19,7 +19,7 @@ import com.shashank.sony.fancytoastlib.FancyToast;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-    private Button btnSave,btnGetAllData;
+    private Button btnSave,btnGetAllData,btnTransition;
     private EditText edtName,edtPunchPower,edtPunchSpeed,edtKickPower,edtKickSpeed;
     private TextView txtGetData;
     private String allKickBoxers;
@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         btnSave = findViewById(R.id.btnSave);
-        btnGetAllData = findViewById(R.id.button);
+        btnGetAllData = findViewById(R.id.btnGetAllData);
         edtName= findViewById(R.id.edtName);
         edtPunchPower = findViewById(R.id.edtPunchPower);
         edtPunchSpeed = findViewById(R.id.edtPunchSpeed);
@@ -37,6 +37,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         txtGetData = findViewById(R.id.txtGetData);
         btnSave.setOnClickListener(this);
         btnGetAllData.setOnClickListener(this);
+        btnTransition.setOnClickListener(this);
         txtGetData.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -60,8 +61,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.button:
+            case R.id.btnGetAllData:
                 ParseQuery<ParseObject> queryAll = ParseQuery.getQuery("KickBoxer");
+                queryAll.whereGreaterThan("punchPower",400);
                 queryAll.findInBackground(new FindCallback<ParseObject>() {
                     @Override
                     public void done(List<ParseObject> objects, ParseException e) {
@@ -86,6 +88,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         }
                     }
                 });
+                break;
+            case R.id.btnTransition:
                 break;
             case R.id.btnSave:
 
