@@ -1,5 +1,6 @@
 package com.example.instagramclone;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.util.Log;
@@ -64,6 +65,8 @@ public class SignUpLoginActivity extends AppCompatActivity implements View.OnCli
                     public void done(ParseUser user, ParseException e) {
                         if (user!=null && e==null){
                             FancyToast.makeText(SignUpLoginActivity.this,  " You Logged in successfully", FancyToast.LENGTH_LONG, FancyToast.SUCCESS, true).show();
+                            Intent intent = new Intent(SignUpLoginActivity.this,WelcomeActivity.class);
+                            startActivity(intent);
 
                         }
                         else {                            FancyToast.makeText(SignUpLoginActivity.this, e.getMessage(), FancyToast.LENGTH_LONG, FancyToast.ERROR, true).show();
