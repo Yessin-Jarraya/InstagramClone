@@ -94,6 +94,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.btnTrans:
                 Intent intent = new Intent(MainActivity.this,SignUpLoginActivity.class);
                 startActivity(intent);
+                finish();
                 break;
             case R.id.btnSave:
 
